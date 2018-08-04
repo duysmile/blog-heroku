@@ -223,8 +223,14 @@ class Article extends Model
         if($query['query'] == null){
             return Article::getArticles();
         }
-        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
-            ->paginate(20);
+//        full text search mysql
+//        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
+//            ->paginate(20);
+
+//        fulltext search pgsql
+        $articles = Article::whereRaw('searchtext @@ to_tsquery(\'english\', ?)', [$query])
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'english\', ?)) DESC', [$query]);
+
         foreach($articles as $article){
             $article['author'] = $article->author->name;
             $article['status'] = $article->status->name;
@@ -238,7 +244,14 @@ class Article extends Model
         if($query['query'] == null){
             return Article::getArticles();
         }
-        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
+//        fulltext search mysql
+//        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
+//            ->where('id_status', 2)
+//            ->paginate(self::$num_article_user['list_search']);
+
+//        fulltext search pgsql
+        $articles = Article::whereRaw('searchtext @@ to_tsquery(\'english\', ?)', [$query])
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'english\', ?)) DESC', [$query])
             ->where('id_status', 2)
             ->paginate(self::$num_article_user['list_search']);
         foreach($articles as $article){
@@ -254,7 +267,14 @@ class Article extends Model
         if($query['query'] == null){
             return Article::getArticles();
         }
-        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
+//        fulltext search for mysql
+//        $articles = Article::whereRaw('MATCH(title, content) AGAINST (? IN BOOLEAN MODE)', $query)
+//            ->where('id_author', $id)
+//            ->paginate(20);
+
+//        fulltext search pgsql
+        $articles = Article::whereRaw('searchtext @@ to_tsquery(\'english\', ?)', [$query])
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'english\', ?)) DESC', [$query])
             ->where('id_author', $id)
             ->paginate(20);
         foreach($articles as $article){

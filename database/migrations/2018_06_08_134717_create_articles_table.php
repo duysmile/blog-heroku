@@ -30,6 +30,13 @@ class CreateArticlesTable extends Migration
 
 //        fulltext search for mysql
 //        DB::statement('ALTER TABLE articles ADD FULLTEXT fulltext_index (title, content)');
+
+//        fulltext search for pgsql
+        DB::statement("ALTER TABLE articles ADD COLUMN searchtext TSVECTOR");
+        DB::statement("UPDATE articles SET searchtext = to_tsvector('english', title || '' || content)");
+        DB::statement("CREATE INDEX searchtext_gin ON articles USING GIN(searchtext)");
+        DB::statement("CREATE TRIGGER ts_searchtext BEFORE INSERT OR UPDATE ON articles FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('searchtext', 'pg_catalog.english', 'title', 'content')");
+
     }
     /**
      * Reverse the migrations.
@@ -38,6 +45,9 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
+        DB::statement("DROP TRIGGER IF EXISTS tsvector_update_trigger ON articles");
+        DB::statement("DROP INDEX IF EXISTS searchtext_gin");
+        DB::statement("ALTER TABLE articles DROP COLUMN searchtext");
         Schema::dropIfExists('articles');
     }
 }

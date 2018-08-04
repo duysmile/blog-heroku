@@ -142,7 +142,7 @@ class Article extends Model
             $image_db->url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]);
             $image->move(public_path("uploads"), $name);
             $image_db->save();
-            $article->images()->attach(Image::where('id', $image->id)->get());
+            $article->images()->attach(Image::where('id', $image_db->id)->get());
             return true;
         }
         return false;

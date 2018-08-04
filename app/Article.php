@@ -130,7 +130,7 @@ class Article extends Model
             $fileExtension = $request->thumbnail->getClientOriginalExtension();
 
             $fileName = 'thumbnail_' . $article->id . "_" . time() . '.' . $fileExtension;
-            $uploadPath = public_path('/files/' . Auth::user()->id);
+            $uploadPath = asset('/files/' . Auth::user()->id);
             $request->file('thumbnail')->move($uploadPath, $fileName);
             $image = new Image();
             $image->url = "/files/". Auth::user()->id . "/" . $fileName;

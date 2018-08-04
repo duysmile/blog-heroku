@@ -14,7 +14,7 @@
                         'category' => count($topArticles[0]->categories) ? $topArticles[0]->categories[0]->name : 'no-category',
                         'article' => $topArticles[0]['title-en']
                     ])}}">
-                        <img src="{{$topArticles[0]->images[0]->url}}" alt="" class="w-100">
+                        <img src="{{asset($topArticles[0]->images[0]->url)}}" alt="" class="w-100">
                         <span class="flip-item"></span>
                         <span class="flip-read-more">
                             <img src="{{asset('images/bookmark.png')}}" alt="">
@@ -54,7 +54,7 @@
                                                             'category' => count($topArticle->categories) ? $topArticle->categories[0]->name : 'no-category',
                                                             'article' => $topArticle['title-en']
                                                         ])}}">
-                                        <img src="{{$topArticle->images[0]->url}}" alt="" class="w-100">
+                                        <img src="{{asset($topArticle->images[0]->url)}}" alt="" class="w-100">
                                         <span class="flip-item"></span>
                                         <span class="flip-read-more">
                                                                 <img src="{{asset('images/bookmark.png')}}" alt="">
@@ -111,7 +111,7 @@
                                                                 'category' => count($article->categories) > 0 ? $article->categories[0]->name : 'no-category',
                                                                 'article' => $article['title-en']
                                                             ])}}">
-                                            <img src="{{$article->images[0]->url}}" alt=""
+                                            <img src="{{asset($article->images[0]->url)}}" alt=""
                                                  class="w-100 main__image--height flip">
                                             <span class="flip-item"></span>
                                             <span class="flip-read-more">

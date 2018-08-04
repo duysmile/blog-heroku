@@ -9,7 +9,7 @@
             <i class="fa fa-clock"></i>&nbsp;{{date('d-m-Y', strtotime($article->time_public))}}
         </small>
     </span>
-    <img src="{{$article->images[0]->url}}" alt="" class="w-100 mb-2">
+    <img src="{{asset($article->images[0]->url)}}" alt="" class="w-100 mb-2">
     <p class="text-justify">
         <small>
             {!! $article->content !!}
@@ -30,7 +30,7 @@
                         'category' => count($article_like->categories) ? $article_like->categories[0]->name : 'no-category',
                         'article' => $article_like['title-en']
                     ])}}">
-                        <img src="{{$article_like->images[0]->url}}" alt="" class="w-100 like__image--height">
+                        <img src="{{asset($article_like->images[0]->url)}}" alt="" class="w-100 like__image--height">
                         <span class="flip-item"></span>
                         <span class="flip-read-more">
                             <img src="{{asset('images/bookmark.png')}}" alt="">

@@ -279,7 +279,7 @@ class Article extends Model
     }
 
     public static function getTimePublic(){
-        $time_public = Article::selectRaw('date_format(time_public, \'%m-%Y\') as date')
+        $time_public = Article::selectRaw('to_char(time_public, \'%m-%Y\') as date')
             ->distinct()
             ->where([
                 'id_status' => 2,

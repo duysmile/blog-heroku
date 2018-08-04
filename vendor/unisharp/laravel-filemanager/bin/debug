@@ -2,7 +2,7 @@
 <?php
 
 /*
- * This file is part of laravel-filemanager.
+ * This file is part of laravel-heroku-filemanager.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,10 +11,10 @@
 $composerLock = file_get_contents('composer.lock');
 $jsonComposerLock = json_decode($composerLock);
 foreach ($jsonComposerLock->packages as $package) {
-    if ($package->name == 'unisharp/laravel-filemanager')
+    if ($package->name == 'unisharp/laravel-heroku-filemanager')
         $lfmVersion = $package->version;
 
-    if ($package->name == 'laravel/framework')
+    if ($package->name == 'laravel-heroku/framework')
         $laravelVersion = $package->version;
 
     if (isset($lfmVersion) && isset($laravelVersion))

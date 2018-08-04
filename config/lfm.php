@@ -11,11 +11,11 @@ return [
     'use_package_routes' => true,
 
     // Middlewares which should be applied to all package routes.
-    // For laravel 5.1 and before, remove 'web' from the array.
+    // For laravel-heroku 5.1 and before, remove 'web' from the array.
     'middlewares' => ['web', 'auth'],
 
     // The url to this package. Change it if necessary.
-    'url_prefix' => 'laravel-filemanager',
+    'url_prefix' => 'laravel-heroku-filemanager',
 
     /*
     |--------------------------------------------------------------------------
@@ -112,7 +112,7 @@ return [
     'create_file_mode' => 0644,
 
     // available since v1.3.0
-    // only when '/laravel-filemanager?type=Files'
+    // only when '/laravel-heroku-filemanager?type=Files'
     'valid_file_mimetypes' => [
         'image/jpeg',
         'image/pjpeg',

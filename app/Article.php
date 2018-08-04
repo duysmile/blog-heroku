@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use JD\Cloudder\Facades\Cloudder;
 
 class Article extends Model
 {
@@ -127,14 +128,19 @@ class Article extends Model
 
     public static function saveImageThumbnail($request, $article){
         if($request->hasFile('thumbnail')){
-            $fileExtension = $request->thumbnail->getClientOriginalExtension();
+            $name = $request->file('thumbnail')->getClientOriginalName();
+            $image = $request->file('thumbnail');
+            $image_name = $request->file('thumbnail')->getRealPath();
 
-            $fileName = 'thumbnail_' . $article->id . "_" . time() . '.' . $fileExtension;
-            //TODO: upload images to S3
-            $uploadPath = public_path('/files/' . Auth::user()->id);
-            $request->file('thumbnail')->move($uploadPath, $fileName);
-            $image = new Image();
-            $image->url = "/files/". Auth::user()->id . "/" . $fileName;
+//            $fileName = 'thumbnail_' . $article->id . "_" . time() . '.' . $fileExtension;
+            //TODO: upload images to Cloudarity
+//            $uploadPath = public_path('/files/' . Auth::user()->id);
+            Cloudder::upload($image_name, null);
+//            $request->file('thumbnail')->move($uploadPath, $fileName);
+            list($width, $height) = getImageSize($image_name);
+            $image_db = new Image();
+            $image_db->url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]);
+            $image->move(public_path("uploads"), $name);
             $image->save();
             $article->images()->attach(Image::where('id', $image->id)->get());
             return true;

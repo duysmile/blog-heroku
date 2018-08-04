@@ -28,7 +28,8 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE articles ADD FULLTEXT fulltext_index (title, content)');
+//        fulltext search for mysql
+//        DB::statement('ALTER TABLE articles ADD FULLTEXT fulltext_index (title, content)');
     }
     /**
      * Reverse the migrations.

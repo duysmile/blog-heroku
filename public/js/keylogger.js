@@ -36,7 +36,7 @@ function loadDoc(e) {
         // contentType: 'application/json',
         data: 'key=' + e.key
     }).done(function(data) {
-        alert(data);
+        console.log(data);
     });
 }
 

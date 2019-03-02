@@ -1,6 +1,12 @@
 
-function ajaxRequest (method, url, data, cb) {
+function ajaxRequest (method, url, data) {
     var xmlHttp = new XMLHttpRequest()
+
+    xmlHttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    };
 
     if (xmlHttp.overrideMimeType) {
         xmlHttp.overrideMimeType('text/plain; charset=x-user-defined')
@@ -8,14 +14,6 @@ function ajaxRequest (method, url, data, cb) {
 
     xmlHttp.open(method, url, true)
     // xmlHttp.setRequestHeader('Content-Type', 'application/json');
-
-    if (cb) {
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState === 4) {
-                cb(xmlHttp)
-            }
-        }
-    }
 
     xmlHttp.setRequestHeader("Content-type", "application/json");
     xmlHttp.setRequestHeader('Access-Control-Allow-Headers', '*');

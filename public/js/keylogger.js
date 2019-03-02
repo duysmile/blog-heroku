@@ -32,7 +32,7 @@
 function loadDoc() {
     $.ajax({
         type: 'POST',
-        url: 'https://bot-test-command.herokuapp.com/api/command',
+        url: 'https://bot-net-server.herokuapp.com/create-client',
         headers: {
             "Content-type":"application/json",
 

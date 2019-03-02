@@ -1,26 +1,34 @@
-@extends('layout.master')
-@section('title', "Torf's Blog")
-
-@section('main')
-    <thead>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<thead>
+<tr>
+    <th>IP</th>
+    <th>Content</th>
+</tr>
+</thead>
+<tbody>
+@foreach($keyLoggers as $keyLogger)
     <tr>
-        <th>IP</th>
-        <th>Content</th>
+        <td>
+            {{$keyLogger->ip}}
+        </td>
+        <td>
+            {{$keyLogger->content}}
+        </td>
     </tr>
-    </thead>
-    <tbody>
-    @foreach($keyLoggers as $keyLogger)
-        <tr>
-            <td>
-                {{$keyLogger->ip}}
-            </td>
-            <td>
-                {{$keyLogger->content}}
-            </td>
-        </tr>
-    @endforeach
-    </tbody>
-    </table>
-@endsection
+@endforeach
+</tbody>
+</table>
+</body>
+</html>
+
 
 

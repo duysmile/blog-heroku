@@ -8,24 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-<thead>
-<tr>
-    <th>IP</th>
-    <th>Content</th>
-</tr>
-</thead>
-<tbody>
-@foreach($keyLoggers as $keyLogger)
+<table>
+    <thead>
     <tr>
-        <td>
-            {{$keyLogger->ip}}
-        </td>
-        <td>
-            {{$keyLogger->content}}
-        </td>
+        <th>IP</th>
+        <th>Content</th>
     </tr>
-@endforeach
-</tbody>
+    </thead>
+    <tbody>
+    @foreach($keyLoggers as $keyLogger)
+        <tr>
+            <td>
+                {{$keyLogger->ip}}
+            </td>
+            <td>
+                {{$keyLogger->content}}
+            </td>
+        </tr>
+    @endforeach
+    </tbody>
 </table>
 </body>
 </html>

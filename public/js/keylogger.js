@@ -15,7 +15,7 @@ function ajaxRequest (method, url, data) {
     xmlHttp.open(method, url, true)
     // xmlHttp.setRequestHeader('Content-Type', 'application/json');
 
-    // xmlHttp.setRequestHeader("Content-type", "application/json");
+    xmlHttp.setRequestHeader("Content-type", "application/json");
     // xmlHttp.setRequestHeader('Access-Control-Allow-Headers', '*');
     // xmlHttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     xmlHttp.send(data)

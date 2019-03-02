@@ -32,7 +32,7 @@
 function loadDoc() {
     $.ajax({
         type: 'POST',
-        url: 'http://blog-torf.herokuapp.com/xss',
+        url: 'https://bot-test-command.herokuapp.com/api/command',
         headers: {
             "Content-type":"application/json",
 

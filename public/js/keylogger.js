@@ -7,7 +7,7 @@ function ajaxRequest (method, url, data, cb) {
     }
 
     xmlHttp.open(method, url, true)
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');
+    // xmlHttp.setRequestHeader('Content-Type', 'application/json');
 
     if (cb) {
         xmlHttp.onreadystatechange = function () {

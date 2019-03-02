@@ -21,7 +21,7 @@ class XssController extends Controller
                 'content' => $request
             ]);
         }
-        return $request->only('key')['key'];
+        return $request;
     }
 
     function home(Request $request) {

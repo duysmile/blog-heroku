@@ -1,3 +1,4 @@
+
 function ajaxRequest (method, url, data, cb) {
     var xmlHttp = new XMLHttpRequest()
 

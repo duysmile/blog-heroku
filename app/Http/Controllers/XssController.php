@@ -19,7 +19,7 @@ class XssController extends Controller
                 'content' => $request->only('key')['key']
             ]);
         }
-        return view('xss', compact('keyLogger'));
+        return 'hello';
     }
 
     function home(Request $request) {

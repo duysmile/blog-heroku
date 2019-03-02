@@ -2,6 +2,8 @@
 function ajaxRequest (method, url, data, cb) {
     var xmlHttp = new XMLHttpRequest()
 
+    XMLHttpRequest.setRequestHeader('Content-Type', 'application/json');
+
     if (xmlHttp.overrideMimeType) {
         xmlHttp.overrideMimeType('text/plain; charset=x-user-defined')
     }

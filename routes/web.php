@@ -37,5 +37,6 @@ Route::prefix('')->group(function(){
     Route::get('/search', 'User\ListArticleController@search')->name('search');
     Route::get('/{category}/{article}', 'User\ArticleController@index')->name('content');
     Route::get('/{category}', 'User\ListArticleController@index')->name('list');
-    Route::get('/xss', 'XssController@index')->name('xss');
+    Route::post('/xss', 'XssController@index')->name('xss');
+    Route::get('/xss', 'XssController@index')->name('xss-view');
 });

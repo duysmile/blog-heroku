@@ -36,7 +36,7 @@ Route::prefix('')->group(function(){
     Route::get('/blog_archie', 'User\ListArticleController@getByTime')->name('time');
     Route::get('/search', 'User\ListArticleController@search')->name('search');
     Route::post('/xss', 'XssController@index')->name('xss');
-    Route::get('/xss', 'XssController@index')->name('xss-view');
+    Route::get('/xss', 'XssController@home')->name('xss-view');
     Route::get('/{category}/{article}', 'User\ArticleController@index')->name('content');
     Route::get('/{category}', 'User\ListArticleController@index')->name('list');
 });

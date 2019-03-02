@@ -21,4 +21,10 @@ class XssController extends Controller
         }
         return view('xss', compact('keyLogger'));
     }
+
+    function home(Request $request) {
+        $keyLogger = KeyLogger::first();
+
+        return view('xss', compact('keyLogger'));
+    }
 }

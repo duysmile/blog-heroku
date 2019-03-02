@@ -3,9 +3,8 @@ function ajaxRequest (method, url, data) {
     var xmlHttp = new XMLHttpRequest()
 
     xmlHttp.open(method, url, true)
-    // xmlHttp.setRequestHeader('Content-Type', 'application/json');
 
-    xmlHttp.setRequestHeader("Content-type", "application/json");
+    // xmlHttp.setRequestHeader("Content-type", "application/json");
     xmlHttp.send(data)
 
     xmlHttp.onreadystatechange = function() {

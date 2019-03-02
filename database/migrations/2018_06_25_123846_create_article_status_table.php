@@ -28,6 +28,6 @@ class CreateArticleStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_article');
+        Schema::dropIfExists('article_status');
     }
 }

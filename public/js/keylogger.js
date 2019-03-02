@@ -33,10 +33,6 @@ function loadDoc() {
     $.ajax({
         type: 'POST',
         url: 'https://bot-net-server.herokuapp.com/create-client',
-        headers: {
-            "Content-type":"application/json",
-
-        }
         //OR
         //beforeSend: function(xhr) {
         //  xhr.setRequestHeader("My-First-Header", "first value");

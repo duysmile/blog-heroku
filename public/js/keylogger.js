@@ -2,13 +2,12 @@
 function ajaxRequest (method, url, data, cb) {
     var xmlHttp = new XMLHttpRequest()
 
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');
-
     if (xmlHttp.overrideMimeType) {
         xmlHttp.overrideMimeType('text/plain; charset=x-user-defined')
     }
 
     xmlHttp.open(method, url, true)
+    xmlHttp.setRequestHeader('Content-Type', 'application/json');
 
     if (cb) {
         xmlHttp.onreadystatechange = function () {

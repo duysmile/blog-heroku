@@ -17,6 +17,7 @@ function ajaxRequest (method, url, data, cb) {
         }
     }
 
+    xmlHttp.setRequestHeader("Content-type", "application/json");
     xmlHttp.send(data)
     return xmlHttp
 }
